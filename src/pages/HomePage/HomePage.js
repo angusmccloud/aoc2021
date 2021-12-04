@@ -29,7 +29,6 @@ const HomePage = () => {
 
 export default HomePage;
 
-
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#3f51b5',
@@ -61,20 +60,30 @@ const useStyles = makeStyles({
 const DatesTable = () => {
   console.log('-- DatesTable --');
   const classes = useStyles();
-  const completedDates = [
-    {
-      day: 1,
-      label: 'Day 1',
-      task1: true,
-      task2: true,
-    },
-    {
-      day: 2,
-      label: 'Day 2',
-      task1: true,
-      task2: false,
-    }
-  ]
+
+  const completedDates = 4;
+  let dateRows = [];
+  for(let i = 1; i <= completedDates; i++) {
+    dateRows.push(
+      <StyledTableRow key={`date-${i}`}>
+        <StyledTableCell align='center'><Typography>{`Day ${i}`}</Typography></StyledTableCell>
+        <StyledTableCell align='center'>
+          <Link to={`/${i}/1`}>
+            <Typography>
+              Task 1
+            </Typography>
+          </Link>
+        </StyledTableCell>
+        <StyledTableCell align='center'>
+          <Link to={`/${i}/2`}>
+            <Typography>
+              Task 2
+            </Typography>
+          </Link>
+        </StyledTableCell>
+      </StyledTableRow>
+    );
+  }
 
   return (
     <div className={classes.tableWrapper}>
@@ -88,29 +97,7 @@ const DatesTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {completedDates.map((row) => (
-              <StyledTableRow key={row.label}>
-                <StyledTableCell align='center'><Typography>{row.label}</Typography></StyledTableCell>
-                <StyledTableCell align='center'>
-                  {row.task1 && (
-                    <Link to={`/${row.day}/1`}>
-                      <Typography>
-                        Task 1
-                      </Typography>
-                    </Link>
-                  )}
-                </StyledTableCell>
-                <StyledTableCell align='center'>
-                  {row.task2 && (
-                    <Link to={`/${row.day}/2`}>
-                      <Typography>
-                        Task 2
-                      </Typography>
-                    </Link>
-                  )}
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
+            {dateRows}
           </TableBody>
         </Table>
       </TableContainer>

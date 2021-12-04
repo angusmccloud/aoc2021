@@ -3,18 +3,18 @@ import { useParams } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import { Navigation } from '../../containers';
 
-const Day1Page = () => {
+const Day3Page = () => {
   const { taskNumber } = useParams();
   return (
     <div>
-      <Navigation pageName={`Day 1, Task ${taskNumber}`}>
+      <Navigation pageName={`Day 3, Task ${taskNumber}`}>
         <Typography variant='h5'>
-          Day 1, Need to move code to this repo...
+          Day 3, Need to move code to this repo...
         </Typography>
       </Navigation>
     </div>
   );
 }
 
-export default Day1Page;
+export default Day3Page;
 

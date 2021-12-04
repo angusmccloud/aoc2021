@@ -9,7 +9,7 @@ const Day2Page = () => {
     <div>
       <Navigation pageName={`Day 2, Task ${taskNumber}`}>
         <Typography variant='h5'>
-          Day 2, Need to Build It!
+          Day 2, Need to move code to this repo...
         </Typography>
       </Navigation>
     </div>
