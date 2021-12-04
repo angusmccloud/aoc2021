@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import data from './input';
 import { useParams } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import { Navigation } from '../../containers';
+import data from './input';
 
 const Day4Page = () => {
   const [bingoNumbers, setBingoNumbers] = useState([]);
@@ -203,9 +203,6 @@ const Day4Page = () => {
   return (
     <div>
       <Navigation pageName={`Day 4, Task ${taskNumber}`}>
-        <Typography>
-          {bingoNumbers.map((b) => `${b}, `)}
-        </Typography>
         {result1 !== '' && (
           <Typography variant='h5'>
             Result 1: {result1}
@@ -216,6 +213,9 @@ const Day4Page = () => {
             Result 2: {result2}
           </Typography>
         )}
+        <Typography>
+          Bingo Numbers: {bingoNumbers.map((b) => `${b}, `)}
+        </Typography>
       </Navigation>
     </div>
   );
