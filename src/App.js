@@ -11,6 +11,7 @@ import {
   Day2Page,
   Day3Page,
   Day4Page,
+  Day5Page,
 } from './pages';
 
 const App = () => {
@@ -32,6 +33,9 @@ const App = () => {
         </Route>
         <Route exact path="/4/:taskNumber">
           <Day4Page />
+        </Route>
+        <Route exact path="/5/:taskNumber">
+          <Day5Page />
         </Route>
       </Switch>
     </Router>

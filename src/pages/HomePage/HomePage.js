@@ -61,7 +61,7 @@ const DatesTable = () => {
   console.log('-- DatesTable --');
   const classes = useStyles();
 
-  const completedDates = 4;
+  const completedDates = 5;
   let dateRows = [];
   for(let i = 1; i <= completedDates; i++) {
     dateRows.push(
