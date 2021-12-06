@@ -4,13 +4,13 @@ import Day2Page from './Day2/Day2Page';
 import Day3Page from './Day3/Day3Page';
 import Day4Page from './Day4/Day4Page';
 import Day5Page from './Day5/Day5Page';
-import Day6Page from './Day5/Day5Page';
-import Day7Page from './Day5/Day5Page';
-import Day8Page from './Day5/Day5Page';
-import Day9Page from './Day5/Day5Page';
-import Day10Page from './Day5/Day5Page';
-import Day11Page from './Day5/Day5Page';
-import Day12Page from './Day5/Day5Page';
+import Day6Page from './Day6/Day6Page';
+import Day7Page from './Day7/Day7Page';
+import Day8Page from './Day8/Day8Page';
+import Day9Page from './Day9/Day9Page';
+import Day10Page from './Day10/Day10Page';
+import Day11Page from './Day11/Day11Page';
+import Day12Page from './Day12/Day12Page';
 
 export {
     HomePage,

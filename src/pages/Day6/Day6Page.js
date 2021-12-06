@@ -11,13 +11,29 @@ const Day6Page = () => {
   const { taskNumber } = useParams();
 
   useEffect(() => {
-    setInputData(data.split('\n').map(v => parseInt(v.trim())));
+    setInputData(data.split(',').map(v => parseInt(v.trim())));
   }, []);
 
   useEffect(() => {
     // Solve Task 1
     if (taskNumber === '1' && result1 === '' && inputData.length > 0) {
-      // setResult1(`Number of Depth Increases: ${increasesCount}`);
+      const fish = [...inputData];
+      for(let i = 0; i < 80; i++) {
+        let newFish = 0;
+        for(let ii = 0; ii < fish.length; ii++) {
+          const num = fish[ii];
+          if(num === 0) {
+            fish[ii] = 6;
+            newFish++;
+          } else {
+            fish[ii]--;
+          }
+        }
+        for(let ii = 0; ii < newFish; ii++) {
+          fish.push(8);
+        }
+      }
+      setResult1(`There are ${fish.length} fish!`);
     }
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [inputData]);
@@ -25,7 +41,22 @@ const Day6Page = () => {
   useEffect(() => {
     // Solve Task 2
     if (taskNumber === '2' && result2 === '' && inputData.length > 0) {
-      // setResult2(`Number of Summed Depth Increases: ${increasesCount}`);
+      const days = 256;
+      const fish = [...inputData];
+      const fishCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+      for(let i = 0; i < fish.length; i++) {
+        fishCounts[fish[i]]++;
+      }
+      for(let i = 0; i < days; i++) {
+        const resetFish = fishCounts[0];
+        for (let ii = 0; ii < 8; ii++) {
+          fishCounts[ii] = fishCounts[ii + 1]
+        }
+        fishCounts[8] = resetFish
+        fishCounts[6] += resetFish
+      }
+
+      setResult2(`There are ${fishCounts.reduce((a,b) => a+b, 0)} fish!`);
     }
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, [inputData]);
@@ -52,4 +83,3 @@ const Day6Page = () => {
 }
 
 export default Day6Page;
-
